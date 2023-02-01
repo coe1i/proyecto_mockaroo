@@ -51,6 +51,27 @@ function crudDetallesAnterior($id){
 
 
 }
+function fotoClienteFormato($id) {
+    $fichero = str_pad(0, 7, "0", STR_PAD_LEFT);
+    $fichero = substr($fichero, 0, 8 - strlen($id)) . $id;
+    $fichero = "app/uploads/" . $fichero . ".jpg";
+    $formato = $_FILES['foto']['type'];
+    $peso = $_FILES['foto']['size'];
+    if ($peso <= 1000000) {
+        if ($formato == "image/jpg" || $formato == "image/png") {
+            if (!file_exists($fichero)) {
+                move_uploaded_file($_FILES['foto']['tmp_name'], $fichero);
+            } else {
+                unlink($fichero);
+                move_uploaded_file($_FILES['foto']['tmp_name'], $fichero);
+            }
+        } else {
+            echo "no es una imagen";
+        }
+    } else {
+        echo "supera el tamaño";
+    }
+}
 
 
 
