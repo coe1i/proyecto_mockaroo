@@ -1,6 +1,6 @@
 ### proyecto_mockaroo
 
- #Lista de mejoras: 
+ Lista de mejoras: 
 
 - Mostrar en detalles y en modificar la opción de siguiente y anterior  ✔️
 
